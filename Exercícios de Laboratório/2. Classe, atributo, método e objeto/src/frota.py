@@ -1,10 +1,4 @@
 class Carro:
-    marca: str
-    motor: bool
-    odometro: int
-    modelo_: str
-
-    # os dois selfs são valores que serão passados para o Construtor.
     def __init__(self, model, mark, tanq, consu, mot=False, odome=0):
         self.modelo = model
         self.marca = mark

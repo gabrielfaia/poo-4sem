@@ -1,4 +1,4 @@
-from luta import *
+from classes import *
 import random
 
 def golpear(batedor : Lutador, apanhador : Lutador):

@@ -1,11 +1,13 @@
 from calculos import *
 
 if __name__ == "__main__":
+
     calc = Calculadora()
 
     comando = 'on'
-    comandos = ['off', '+', '-', '/', '*', 'SQRT', '**' 'Z']
+    comandos = ['off', '+', '-', '/', '*', 'SQRT', '**', 'Z']
 
+    # Loop onde fica pedindo pro usuário digitar algum comando válido dito acima
     while comando != 'off':
         comando = 'on'
         while comando not in comandos:

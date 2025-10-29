@@ -1,20 +1,21 @@
-import pickle
-import traceback
+import pickle # Biblioteca pra salvar e carregar objeto em arquivo binário
+from common import * # Importa todas as classes do arquivo common
 
-from common import *
-
+# Constantes que guardam os nomes dos arquivos onde os dados serão salvos
 FILE_ELEITORES = 'eleitores.pkl'
 FILE_CANDIDATOS = 'candidatos.pkl'
 
 def menu_eleitor():
-    print("1-Novo Eleitor")
-    print("2-Atualizar Eleitor")
-    print('3-Remover Candidato')
-    print('4-Novo Candidato')
-    print("5-Sair")
-    op = int(input("Digite a opcao [1,2,3,4,5]? "))
+    print("1 - Novo Eleitor")
+    print("2 - Atualizar Eleitor")
+    print('3 - Remover Candidato')
+    print('4 - Novo Candidato')
+    print("5 - Sair")
+    op = int(input("Digite a opcao [1,2,3,4,5]?"))
+
+    # Enquanto a opção for inválida, pede novamente
     while op not in (1, 2, 3, 4, 5):
-        op = int(input("Digite a opcao [1,2,3,4,5]? "))
+        op = int(input("Digite a opcao [1,2,3,4,5]?"))
     return op
 
 def inserir_eleitor(eleitores):
@@ -69,7 +70,7 @@ def remover_candidato(candidatos):
         raise Exception('Candidato não encontrado')
 
 if __name__ == "__main__":
-    eleitores = {} #dicionário a chave será o titulo
+    eleitores = {} 
     candidatos = {}
     try:
         print("Carregando arquivo de eleitores ...")
@@ -90,7 +91,7 @@ if __name__ == "__main__":
         print("Arquivo nao encontrado, nenhum candidato carregado!")
 
     opcao = 1
-    # operador até 05 (ver em casa)
+    
     while opcao in (1,2,3,4,5):
         try:
             opcao = menu_eleitor()
@@ -104,5 +105,7 @@ if __name__ == "__main__":
             elif opcao == 4:
                 print("Saindo!")
                 break
+
+        # Captura e exibe erro que ocorrer durante a execução
         except Exception as e:
             print(e)

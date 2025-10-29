@@ -1,4 +1,3 @@
-## * para tudo ou o nome da Classe
 from frota import Carro
 
 if __name__ == '__main__':

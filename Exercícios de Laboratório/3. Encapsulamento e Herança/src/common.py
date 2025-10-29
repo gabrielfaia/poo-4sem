@@ -1,8 +1,10 @@
 class Pessoa:
+    # Atributos Privados (não acessados fora da classe, apenas como anotação)
     __nome : str
     __RG : str
     __CPF : str
-
+    
+    # Construtor da classe (inicializa os atributos da Pessoa)
     def __init__(self, nome, RG, CPF):
         self.__nome = nome
         self.__RG = RG
@@ -13,15 +15,17 @@ class Pessoa:
                f'RG: {self.__RG}\n'
                f'CPF: {self.__CPF}\n')
         return info
-
+    
     def __repr__(self):
         return f"Pessoa(nome='{self.__nome}', RG='{self.__RG}', CPF='{self.__CPF}')"
-
+    
 class Eleitor(Pessoa):
     __titulo : int
     secao : int
     zona : int
 
+    # Construtor da classe, aproveitando o construtor da classe Pessoa (super)
+    # super() = Pessoa é a classe mãe, enquanto Eleitor a filha
     def __init__(self, nome, RG, CPF, titulo, secao, zona):
         super().__init__(nome, RG, CPF)
         self.__titulo = titulo
@@ -42,7 +46,6 @@ class Eleitor(Pessoa):
         return self.__titulo
     
 class Candidato(Pessoa):
-    __numero: int
 
     def __init__(self, nome, RG, CPF, numero):
         super().__init__(nome, RG, CPF)

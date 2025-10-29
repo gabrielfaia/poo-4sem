@@ -1,17 +1,12 @@
-from typing import List
-
 class Pessoa:
-    __nome: str
 
     def __init__(self, nome):
         self.__nome = nome
     
     def __str__(self):
-        return f"Nome: {self.__nome} "
+        return f"Nome: {self.__nome}"
     
 class Aluno(Pessoa):
-    __RA: int
-    tamanho_camisa: str
 
     def __init__(self, nome, ra, tamanho_camisa):
         super().__init__(nome)
@@ -22,7 +17,6 @@ class Aluno(Pessoa):
         return self.__RA
     
 class Juiz(Pessoa):
-    __email__: str
 
     def __init__(self, nome, email):
         super().__init__(nome)
@@ -37,8 +31,6 @@ class Juiz(Pessoa):
         return txt
     
 class Time:
-    __nome: str 
-    __alunos: List[Aluno]
 
     def __init__(self, nome, alunos=None):
         self.__nome = nome
@@ -64,13 +56,9 @@ class Time:
         return txt
 
 class Maratona:
-    __ano: int
-    juiz: Juiz
-    __times: List[Aluno]
-
     def __init__(self, ano: int):
-        self.__ano = ano
-        self.__times = []
+        self._ano = ano
+        self._times = []
         self.juiz = None 
 
         def add_time(self, time: Time):
@@ -87,7 +75,6 @@ class Maratona:
             for t in self.__times:
                 txt += f" - {t}\n"
             return txt
-
 
     gabriel = Aluno("Gabriel Conrado", 1, "M")
     diogo = Aluno("Diogo Dantas", 2, "M")
